@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>termohelper</title>
+</head>
+<body>
+  <p>[letras em qualquer posição]|[letras em nenhuma posição]|[posição][letra que está especificamente nela](se mais de uma, separe por vírgula)|[posição][letra que existe mas não está nela](se mais de uma, separe por vírgula)</p>
+  <form>
+    <input type="text" />
+    <button type="submit">buscar</button>
+  </form>
+  <p></p>
+
+  <script src="words.js"></script> 
+  <script src="index.js"></script> 
+  <script>
+    const form = document.querySelector('form');
+    const input = document.querySelector('input');
+    const button = document.querySelector('button');
+    const paragraph = document.querySelectorAll('p')[1];
+
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const words = main(input.value);
+      paragraph.innerText = words.join(', ') 
+    });
+  </script>
+</body>
+</html>
